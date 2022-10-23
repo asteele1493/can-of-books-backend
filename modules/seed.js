@@ -1,10 +1,11 @@
 'use strict';
 
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 //connects to our mongoose db
 
-mongoose.connect('mongodb://localhost:27017/books-database', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGOCONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //this is where the connection happens
 //obj relation that is representing that connection
@@ -31,7 +32,8 @@ async function seed() {
     description: 'Harper Lee',
     status: 'Lent to a friend',
     favorite: true,
-    yearReleased: 1960
+    yearReleased: 1960,
+    image: 'https://images.unsplash.com/photo-1624065935512-0f2e3b2f5c5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
   });
 
   await Book.create({
@@ -39,7 +41,8 @@ async function seed() {
     description: 'Chuck Palahniuk',
     status: 'In my library',
     favorite: false,
-    yearReleased: 1996
+    yearReleased: 1996,
+    image: 'https://images.unsplash.com/photo-1586972246803-d2bdc4006378?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   });
 
   await Book.create({
@@ -47,7 +50,8 @@ async function seed() {
     description: 'Anthony Bourdain',
     status: 'Forever in my heart',
     favorite: true,
-    yearReleased: 2000
+    yearReleased: 2000,
+    image: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   });
 
   console.log('Done seeding');

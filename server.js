@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3002;
 
 //go to class repo and in the readme, htere are instructions on how to bring in mongoose
 //connecting to mongoose database
-mongoose.connect('mongodb://localhost:27017/books-database', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGOCONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //this is where the connection happens
 //obj relation that is representing that connection

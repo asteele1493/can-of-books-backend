@@ -12,7 +12,8 @@ const bookSchema = new Schema({
   description: String,
   status: String,
   favorite: Boolean,
-  yearReleased: Number
+  yearReleased: Number,
+  image: String
 });
 
 //make a model of our schema, name it which will turn it into the name of the collection in Mongo.db w/ an s at the end. Pass it the shape of the data which will always be your schema.
