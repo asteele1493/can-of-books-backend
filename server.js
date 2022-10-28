@@ -4,11 +4,14 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const getBooks = require('./modules/handlers');
+const Handlers = require('./modules/handlers');
 
 const app = express();
 
 app.use(cors());
+
+//ensures we are able to send and receive in json format
+app.use(express.json());
 
 const PORT = process.env.PORT || 3002;
 
@@ -40,7 +43,11 @@ app.get('/test', (request, response) => {
 
 })
 
-app.get('/books', getBooks);
+app.get('/books', Handlers.getBooks);
+
+app.post('/books', Handlers.createBooks);
+
+app.delete('/books/:id', Handlers.deleteBooks);
 
 
 
