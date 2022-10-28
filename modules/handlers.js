@@ -33,6 +33,18 @@ Handlers.createBooks = async(request, response, next) => {
   }
 }
 
+  Handlers.deleteBooks = async(request, response, next) => {
+    try{
+      await Book.findByIdAndDelete(request.params.id);
+      response.status(200).send('your book has been successfully deleted');
+    }
+    catch(error) {
+      error.customMessage = 'Could not delete book: ';
+      console.log(error.customMessage + error);
+      next(error);
+    }
+}
+
 module.exports = Handlers;
 
 
