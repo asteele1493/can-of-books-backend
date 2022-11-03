@@ -49,6 +49,7 @@ app.post('/books', Handlers.createBooks);
 
 app.delete('/books/:id', Handlers.deleteBooks);
 
+app.put('/books/:id', Handlers.updateBook);
 
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
