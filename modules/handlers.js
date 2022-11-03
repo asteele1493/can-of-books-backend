@@ -45,7 +45,18 @@ Handlers.createBooks = async(request, response, next) => {
     }
 }
 
+Handlers.updateBook = async(request, response, next) => {
+  try{
+    const updatedBook = await Book.findByIdAndUpdate(request.params.id, request.body, { new: true });
+    response.status(200).send(updatedBook);
+  }
+  catch(error) {
+    error.customMessage = 'Could not updated book: ';
+    console.log(error.customMessage + error);
+    next(error);
+  }
+}
+
 module.exports = Handlers;
 
 
-//Notes to look up: check customMessage syntax. Do we need to declare?
