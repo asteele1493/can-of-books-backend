@@ -7,11 +7,14 @@
 const Book = require('../models/book');
 const Handlers = {};
 
+
 Handlers.getBooks = async(request, response, next) => {
   try{
   //books variable is going to hold all of our books in our database
   //passing in an empty object tells mongoose to get all the documents from the database.
-  const books = await Book.find({});
+  console.log(request.user.email);
+  const books = await Book.find({ email : request.user.email });
+  console.log(books);
   response.status(200).send(books);
   }
   catch(error) {
@@ -55,6 +58,11 @@ Handlers.updateBook = async(request, response, next) => {
     console.log(error.customMessage + error);
     next(error);
   }
+}
+
+Handlers.getUsers = async(request, response) => {
+  console.log('Getting the user.');
+  response.send(request.user);
 }
 
 module.exports = Handlers;

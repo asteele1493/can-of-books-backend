@@ -33,7 +33,8 @@ async function seed() {
     status: 'Lent to a friend',
     favorite: true,
     yearReleased: 1960,
-    image: 'https://images.unsplash.com/photo-1624065935512-0f2e3b2f5c5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
+    image: 'https://images.unsplash.com/photo-1624065935512-0f2e3b2f5c5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
+    email: 'manuch.sadri@gmail.com'
   });
 
   await Book.create({
@@ -42,7 +43,8 @@ async function seed() {
     status: 'In my library',
     favorite: false,
     yearReleased: 1996,
-    image: 'https://images.unsplash.com/photo-1586972246803-d2bdc4006378?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    image: 'https://images.unsplash.com/photo-1586972246803-d2bdc4006378?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', 
+    email: 'andrasteele@gmail.com'
   });
 
   await Book.create({
@@ -51,7 +53,8 @@ async function seed() {
     status: 'Forever in my heart',
     favorite: true,
     yearReleased: 2000,
-    image: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    image: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', 
+    email: 'andrasteele@gmail.com'
   });
 
   console.log('Done seeding');
