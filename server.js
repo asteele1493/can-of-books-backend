@@ -5,10 +5,14 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Handlers = require('./modules/handlers');
+const verifyUser = require('./auth.js');
 
 const app = express();
 
+//MIDDLEWARE
 app.use(cors());
+app.use(verifyUser);
+
 
 //ensures we are able to send and receive in json format
 app.use(express.json());
@@ -36,7 +40,6 @@ db.once('open', function() {
   console.log('Mongoose is connected')
 });
 
-
 app.get('/test', (request, response) => {
 
   response.send('test request received')
@@ -51,5 +54,6 @@ app.delete('/books/:id', Handlers.deleteBooks);
 
 app.put('/books/:id', Handlers.updateBook);
 
+app.get('/user', Handlers.getUsers);
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
